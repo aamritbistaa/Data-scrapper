@@ -10,15 +10,16 @@ import requests
 import csv
 
 
+KEY=input("Enter company name:  ")
+wait(5)
 def wait(self):
     time.sleep(self)
 
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
-KEY=input("Enter company name:  ")
-
+wait(1)
 url="https://www.sharesansar.com/"
+wait(1)
 driver.maximize_window()
 
 driver.get(url)
