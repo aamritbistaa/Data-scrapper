@@ -16,6 +16,7 @@ def wait(self):
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
+KEY=input("Enter company name:  ")
 
 url="https://www.sharesansar.com/"
 driver.maximize_window()
@@ -24,12 +25,13 @@ driver.get(url)
 wait(1)
 
 
+
 #<input id="company_search" class="form-control" placeholder="Company Name or Symbol" autocomplete="off">
 element=driver.find_element(By.CLASS_NAME,"form-control")
 # element=driver.find_element(By.ID,"company_name")
 element.click()
 wait(1)
-element.send_keys("idbl")
+element.send_keys(KEY)
 wait(1)
 element.send_keys(Keys.ENTER)
 
@@ -68,9 +70,9 @@ while(1):
     tableData=driver.find_elements(By.XPATH,'//*[@id="myTableCPriceHistory"]/tbody')
     for tableData in tableData:
         print(tableData.text)
-    nextButton=driver.find_element(By.XPATH,'//*[@id="myTableCPriceHistory_next"]').click
+
+    driver.find_element(By.XPATH,'//*[@id="myTableCPriceHistory_next"]').click()
    
-    
 
 
 # <a class="paginate_button next disabled" aria-controls="myTableCPriceHistory" data-dt-idx="7" tabindex="0" id="myTableCPriceHistory_next">Next</a>
