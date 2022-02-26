@@ -14,9 +14,9 @@ import pandas as pd
 
 def wait(self):
     time.sleep(self)
-
 #KEY=input("Enter company name:  ")
-
+print("The data is extracted from https://www.sharesansar.com/")
+print("Each page should have 50 data entries")
 KEY=input("Enter company Name or Symbol: ")
 PAGENO=int(input("Enter total number of page: "))
 
@@ -68,7 +68,7 @@ for i in range(0,PAGENO):
     table_data=driver.find_elements(By.XPATH,'//table[@id="myTableCPriceHistory"]')
     tableData=driver.find_elements(By.XPATH,'//*[@id="myTableCPriceHistory"]/tbody')
     for tableiData in tableData:
-        print(tableiData.text)
+        #print(tableiData.text)
         c = tableiData.text
         table_data_list.append(c)
 #         textfile = open("a_file.txt", "a")
@@ -102,3 +102,4 @@ for i in range(0,PAGENO):
 df = pd.DataFrame(z, columns =['SN', 'Date',"Open","HIGH","lOW","LTP","%change","Qty","Turnover"])
 
 SF = df.to_csv(f"Data\{KEY}.csv")
+print("Data saved")
