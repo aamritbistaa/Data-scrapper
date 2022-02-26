@@ -66,9 +66,12 @@ for i in range(0,PAGENO):
     table_data=driver.find_elements(By.XPATH,'//table[@id="myTableCPriceHistory"]')
     tableData=driver.find_elements(By.XPATH,'//*[@id="myTableCPriceHistory"]/tbody')
     for tableiData in tableData:
-        #print(tableiData.text)
+        print(tableiData.text)
         c = tableiData.text
         table_data_list.append(c)
+
+#         for text file
+
 #         textfile = open("a_file.txt", "a")
 #         textfile.write(c + "\n")
 #         textfile.close()
